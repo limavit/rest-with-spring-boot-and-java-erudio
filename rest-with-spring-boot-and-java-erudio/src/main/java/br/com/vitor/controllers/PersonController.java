@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.vitor.model.Person;
+import br.com.vitor.data.vo.v1.PersonVO;
 import br.com.vitor.services.PersonServices;
 
 @RestController
@@ -26,37 +26,37 @@ public class PersonController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	//Com @GetMapping não precisa mais dizer o que produz e consome, porem para o swagger é necessário
 	//com @RequestMapping(method = RequestMethod.Get precisa colocar o que consome e o que produz
-	public List<Person> findAll() {
+	public List<PersonVO> findAll() {
 
 		return service.findAll();
 
 	}
 
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person findById(@PathVariable(value = "id") Long id) {
+	public PersonVO findById(@PathVariable(value = "id") Long id) {
 
 		return service.findById(id);
 
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person create(@RequestBody Person person) {
+	public PersonVO create(@RequestBody PersonVO person) {
 
-		return service.createPerson(person);
+		return service.createPersonVO(person);
 
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person update(@RequestBody Person person) {
+	public PersonVO update(@RequestBody PersonVO person) {
 
-		return service.createPerson(person);
+		return service.createPersonVO(person);
 
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable(value = "id") Long id) {
 
-		service.deletePerson(id);
+		service.deletePersonVO(id);
 		return ResponseEntity.noContent().build();
 
 	}
