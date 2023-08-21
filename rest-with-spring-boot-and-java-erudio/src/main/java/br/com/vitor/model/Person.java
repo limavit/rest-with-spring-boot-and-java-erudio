@@ -11,8 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="t_person")
-public class Person implements Serializable{
+@Table(name = "t_person")
+public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -26,23 +26,18 @@ public class Person implements Serializable{
 	private String address;
 	@Column(nullable = false)
 	private String gender;
-	
-	
 
 	public Person() {
 		super();
 	}
 
-	
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getFirstName() {
 		return firstName;
@@ -94,6 +89,5 @@ public class Person implements Serializable{
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName);
 	}
-	
 
 }
