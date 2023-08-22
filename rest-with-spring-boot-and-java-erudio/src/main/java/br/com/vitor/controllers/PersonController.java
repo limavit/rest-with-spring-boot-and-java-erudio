@@ -49,7 +49,7 @@ public class PersonController {
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public PersonVO update(@RequestBody PersonVO person) {
 
-		return service.createPersonVO(person);
+		return service.updatePersonVO(person);
 
 	}
 
