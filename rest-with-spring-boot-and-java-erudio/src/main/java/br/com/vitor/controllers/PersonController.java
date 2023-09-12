@@ -24,7 +24,9 @@ public class PersonController {
 	@Autowired
 	private PersonServices service = new PersonServices();
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	})
 	//Com @GetMapping não precisa mais dizer o que produz e consome, porem para o swagger é necessário
 	//com @RequestMapping(method = RequestMethod.Get precisa colocar o que consome e o que produz
 	public List<PersonVO> findAll() {
@@ -33,27 +35,41 @@ public class PersonController {
 
 	}
 
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	})
 	public PersonVO findById(@PathVariable(value = "id") Long id) {
 
 		return service.findById(id);
 
 	}
 
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	}, produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	})
 	public PersonVO create(@RequestBody PersonVO person) {
 
 		return service.createPersonVO(person);
 
 	}
-	@PostMapping(value ="/v2",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value ="/v2",consumes = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	}, produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	})
 	public PersonVOV2 createV2(@RequestBody PersonVOV2 person) {
 
 		return service.createPersonVOV2(person);
 
 	}
 
-	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(consumes = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	}, produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE 
+	})
 	public PersonVO update(@RequestBody PersonVO person) {
 
 		return service.updatePersonVO(person);
