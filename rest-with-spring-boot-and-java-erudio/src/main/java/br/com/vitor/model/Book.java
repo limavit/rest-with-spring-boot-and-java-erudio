@@ -35,10 +35,10 @@ public class Book implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getauthor() {
+	public String getAuthor() {
 		return author;
 	}
-	public void setauthor(String author) {
+	public void setAuthor(String author) {
 		this.author = author;
 	}
 	public Date getLaunchDate() {
