@@ -12,7 +12,7 @@ import br.com.vitor.integrationtests.testcontainers.AbstractIntegrationTest;
 public class SwaggerIntegrationTest extends AbstractIntegrationTest{
 
 	@Test
-	public void shouldDisplaySwaggerUiPage() {
+	void shouldDisplaySwaggerUiPage() {
 		var content =
 			given()
 				.basePath("/swagger-ui/index.html")
